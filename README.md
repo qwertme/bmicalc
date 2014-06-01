@@ -1,6 +1,8 @@
-# Bmicalc
+=======
+bmicalc
+=======
 
-TODO: Write a gem description
+Gem to calculate BMI
 
 ## Installation
 

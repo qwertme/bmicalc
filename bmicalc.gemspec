@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tom Kadwill"]
   spec.email         = ["tomkadwill@gmail.com"]
   spec.summary       = %q{Calculate BMI}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = %q{Calculate BMI}
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+    require 'bmicalc'
+
     bmi = Bmicalc.new
     bmi.weight = 64 # in KGs
     bmi.height = 1.78 # in meters

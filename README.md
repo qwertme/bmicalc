@@ -20,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    bmi = Bmicalc.new
+    bmi.weight = 64 # in KGs
+    bmi.height = 1.78 # in meters
+
+    bmi.result # 20 
 
 ## Contributing
 

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tomkadwill@gmail.com"]
   spec.summary       = %q{Calculate BMI}
   spec.description   = %q{Calculate BMI}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/tomkadwill/bmicalc.git"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

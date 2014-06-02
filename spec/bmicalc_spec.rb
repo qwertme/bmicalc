@@ -39,4 +39,11 @@ describe Bmicalc do
     proc { subject.result }.should raise_error(StandardError, 'height not set')
   end
 
+  it 'returns bmi without rounding' do
+    bmi = Bmicalc.new(round: false)
+    bmi.weight = 64
+    bmi.height = 1.78
+    expect(bmi.result).to eq(20.199469763918696)
+  end
+
 end

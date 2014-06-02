@@ -4,7 +4,11 @@ class Bmicalc
 
   attr_accessor :weight, :height
 
-  def result
+  def initialize(options = {})
+    @round = options.fetch(:round, true)
+  end
+
+  def result(options = {})
     error unless weight && height
     calculate_result
   end
@@ -12,7 +16,11 @@ class Bmicalc
   private
 
   def calculate_result
-    (weight / (height * height)).round
+    if @round
+      (weight / (height * height)).round
+    else
+      weight / (height * height)
+    end
   end
 
   def error

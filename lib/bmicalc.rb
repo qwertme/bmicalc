@@ -8,7 +8,7 @@ class Bmicalc
     @round = options.fetch(:round, true)
   end
 
-  def result(options = {})
+  def result
     error unless weight && height
     calculate_result
   end

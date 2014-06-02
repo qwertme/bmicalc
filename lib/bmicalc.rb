@@ -18,25 +18,25 @@ class Bmicalc
 
   def calculate_result
     if @metric
-      metric
+      round(metric)
     else
-      imperial
+      round(imperial)
     end
   end
 
   def metric
-    if @round
-      (weight / (height * height)).round
-    else
-      weight / (height * height)
-    end
+    weight / (height * height)
   end
 
   def imperial
+    (weight * 703) / (height * height)
+  end
+
+  def round(result)
     if @round
-      ((weight * 703) / (height * height)).round
+      result.round
     else
-      (weight * 703) / (height * height)
+      result
     end
   end
 

@@ -6,6 +6,7 @@ class Bmicalc
 
   def initialize(options = {})
     @round = options.fetch(:round, true)
+    @metric = options.fetch(:metric, true)
   end
 
   def result
@@ -16,10 +17,26 @@ class Bmicalc
   private
 
   def calculate_result
+    if @metric
+      metric
+    else
+      imperial
+    end
+  end
+
+  def metric
     if @round
       (weight / (height * height)).round
     else
       weight / (height * height)
+    end
+  end
+
+  def imperial
+    if @round
+      ((weight * 703) / (height * height)).round
+    else
+      (weight * 703) / (height * height)
     end
   end
 

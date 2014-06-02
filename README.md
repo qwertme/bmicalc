@@ -35,6 +35,14 @@ Or install it yourself as:
 
     bmi.result # 20.199469763918696
 
+### Imperial
+
+    bmi = Bmicalc.new(imperial: false)
+    bmi.weight = 141 # in pounds
+    bmi.height = 71 # in inches
+
+    bmi.result # 20
+
 ## Contributing
 
 1. Fork it ( http://github.com/tomkadwill/bmicalc/fork )

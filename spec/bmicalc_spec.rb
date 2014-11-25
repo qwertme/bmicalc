@@ -59,7 +59,7 @@ describe Bmicalc do
     it 'returns bmi without rounding' do
       bmi = Bmicalc.new(metric: false, round: false)
       bmi.weight = 141
-      bmi.height = 70.1 
+      bmi.height = 70.1
       expect(bmi.result).to eq(20.171509622487545)
     end
   end

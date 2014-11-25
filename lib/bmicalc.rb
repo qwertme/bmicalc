@@ -2,11 +2,22 @@ require "bmicalc/version"
 
 class Bmicalc
 
+  class MetricBMI
+    def calculate(weight, height)
+      weight / (height * height)
+    end
+  end
+
+  class ImperialBMI
+    def calculate(weight, height)
+      (weight * 703) / (height * height)
+    end
+  end
   attr_accessor :weight, :height
 
   def initialize(options = {})
     @round = options.fetch(:round, true)
-    @metric = options.fetch(:metric, true)
+    @bmi_calculator = options.fetch(:metric, true) ? MetricBMI.new : ImperialBMI.new
   end
 
   def result
@@ -17,19 +28,7 @@ class Bmicalc
   private
 
   def calculate_result
-    if @metric
-      round(metric)
-    else
-      round(imperial)
-    end
-  end
-
-  def metric
-    weight / (height * height)
-  end
-
-  def imperial
-    (weight * 703) / (height * height)
+    round(@bmi_calculator.calculate(weight, height))
   end
 
   def round(result)

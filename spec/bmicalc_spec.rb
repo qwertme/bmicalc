@@ -6,61 +6,37 @@ describe Bmicalc do
     context 'returns bmi' do
 
       it 'underweight' do
-        subject.weight = 54
-        subject.height = 178
-        expect(subject.result).to be_within(0.5).of(17)
+        expect(subject.calculate(54, 178)).to be_within(0.5).of(17)
       end
 
       it 'ideal' do
-        subject.weight = 64
-        subject.height = 178
-        expect(subject.result).to be_within(0.5).of(20)
+        expect(subject.calculate(64, 178)).to be_within(0.5).of(20)
       end
 
       it 'overweight' do
-        subject.weight = 68
-        subject.height = 148
-        expect(subject.result).to be_within(0.5).of(31)
+        expect(subject.calculate(68, 148)).to be_within(0.5).of(31)
       end
 
       it 'obese' do
-        subject.weight = 118
-        subject.height = 168
-        expect(subject.result).to be_within(0.5).of(42)
+        expect(subject.calculate(118, 168)).to be_within(0.5).of(42)
       end
-    end
-
-    it 'returns correct error message for weight' do
-      subject.height = 178
-      proc { subject.result }.should raise_error(StandardError, 'weight not set')
-    end
-
-    it 'returns correct error message for height' do
-      subject.weight = 64
-      proc { subject.result }.should raise_error(StandardError, 'height not set')
     end
 
     it 'returns bmi without rounding' do
       bmi = Bmicalc.new(round: false)
-      bmi.weight = 64
-      bmi.height = 178
-      expect(bmi.result).to eq(20.199469763918696)
+      expect(bmi.calculate(64, 178)).to eq(20.199469763918696)
     end
   end
 
   context 'imperial' do
     it 'calculates with imperial values' do
       bmi = Bmicalc.new(:units => :imperial)
-      bmi.weight = 141
-      bmi.height = 70
-      expect(bmi.result).to be_within(0.5).of(20)
+      expect(bmi.calculate(141, 70)).to be_within(0.5).of(20)
     end
 
     it 'returns bmi without rounding' do
       bmi = Bmicalc.new(:units => :imperial)
-      bmi.weight = 141
-      bmi.height = 70.1
-      expect(bmi.result).to eq(20.171509622487545)
+      expect(bmi.calculate(141, 70.1)).to eq(20.171509622487545)
     end
   end
 end

@@ -8,25 +8,25 @@ describe Bmicalc do
       it 'underweight' do
         subject.weight = 54
         subject.height = 1.78
-        expect(subject.result).to eq(17)
+        expect(subject.result).to be_within(0.5).of(17)
       end
 
       it 'ideal' do
         subject.weight = 64
         subject.height = 1.78
-        expect(subject.result).to eq(20)
+        expect(subject.result).to be_within(0.5).of(20)
       end
 
       it 'overweight' do
         subject.weight = 68
         subject.height = 1.48
-        expect(subject.result).to eq(31)
+        expect(subject.result).to be_within(0.5).of(31)
       end
 
       it 'obese' do
         subject.weight = 118
         subject.height = 1.68
-        expect(subject.result).to eq(42)
+        expect(subject.result).to be_within(0.5).of(42)
       end
     end
 
@@ -53,11 +53,11 @@ describe Bmicalc do
       bmi = Bmicalc.new(:units => :imperial)
       bmi.weight = 141
       bmi.height = 70
-      expect(bmi.result).to eq(20)
+      expect(bmi.result).to be_within(0.5).of(20)
     end
 
     it 'returns bmi without rounding' do
-      bmi = Bmicalc.new(:units => :imperial, round: false)
+      bmi = Bmicalc.new(:units => :imperial)
       bmi.weight = 141
       bmi.height = 70.1
       expect(bmi.result).to eq(20.171509622487545)

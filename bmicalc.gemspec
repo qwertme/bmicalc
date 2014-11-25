@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'bmicalc/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "bmicalc"
+  spec.name          = "bmicalc-qwertme"
   spec.version       = Bmicalc::VERSION
   spec.authors       = ["Eric di Domenico"]
   spec.email         = ["eric@didomenico.com"]

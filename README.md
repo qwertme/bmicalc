@@ -15,38 +15,25 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install bmicalc
+    $ gem install bmicalc-qwertme
 
 ## Usage
 
+### Metric
     require 'bmicalc'
 
     bmi = Bmicalc.new
-    bmi.weight = 64 # in KGs
-    bmi.height = 1.78 # in meters
-
-    bmi.result # 20 
-
-### Result without rounding
-
-    bmi = Bmicalc.new(round: false)
-    bmi.weight = 64 # in KGs
-    bmi.height = 1.78 # in meters
-
-    bmi.result # 20.199469763918696
+    bmi.calculate(64, 178) # 20.199469763918696
 
 ### Imperial
 
-    bmi = Bmicalc.new(imperial: false)
-    bmi.weight = 141 # in pounds
-    bmi.height = 71 # in inches
+    bmi = Bmicalc.new(units: :imperial)
+    bmi.calculate(141, 71) # ~20
 
-    bmi.result # 20
+### WHO BMI classification
 
-## Contributing
+    bmi = Bmicalc.new
+    bmi.classification(27) # 'overweight'
+    bmi.sub_classification(27) # 'pre-obese'
 
-1. Fork it ( http://github.com/tomkadwill/bmicalc/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+Forked from http://github.com/tomkadwill/bmicalc and heavily modified

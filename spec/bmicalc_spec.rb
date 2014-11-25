@@ -7,31 +7,31 @@ describe Bmicalc do
 
       it 'underweight' do
         subject.weight = 54
-        subject.height = 1.78
+        subject.height = 178
         expect(subject.result).to be_within(0.5).of(17)
       end
 
       it 'ideal' do
         subject.weight = 64
-        subject.height = 1.78
+        subject.height = 178
         expect(subject.result).to be_within(0.5).of(20)
       end
 
       it 'overweight' do
         subject.weight = 68
-        subject.height = 1.48
+        subject.height = 148
         expect(subject.result).to be_within(0.5).of(31)
       end
 
       it 'obese' do
         subject.weight = 118
-        subject.height = 1.68
+        subject.height = 168
         expect(subject.result).to be_within(0.5).of(42)
       end
     end
 
     it 'returns correct error message for weight' do
-      subject.height = 1.78
+      subject.height = 178
       proc { subject.result }.should raise_error(StandardError, 'weight not set')
     end
 
@@ -43,7 +43,7 @@ describe Bmicalc do
     it 'returns bmi without rounding' do
       bmi = Bmicalc.new(round: false)
       bmi.weight = 64
-      bmi.height = 1.78
+      bmi.height = 178
       expect(bmi.result).to eq(20.199469763918696)
     end
   end

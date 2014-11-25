@@ -4,7 +4,8 @@ class Bmicalc
 
   class MetricBMI
     def calculate(weight, height)
-      weight / (height * height)
+      h = height.to_f / 100
+      weight / (h * h)
     end
   end
 

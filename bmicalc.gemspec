@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'bmicalc/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "bmicalc"
+  spec.name          = "bmicalc-qwertme"
   spec.version       = Bmicalc::VERSION
-  spec.authors       = ["Tom Kadwill"]
-  spec.email         = ["tomkadwill@gmail.com"]
+  spec.authors       = ["Tom Kadwill", "Eric di Domenico"]
+  spec.email         = ["tomkadwill@gmail.com", "eric@didomenico.com"]
   spec.summary       = %q{Calculate BMI}
   spec.description   = %q{Calculate BMI}
-  spec.homepage      = "https://github.com/tomkadwill/bmicalc.git"
+  spec.homepage      = "https://github.com/qwertme/bmicalc.git"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

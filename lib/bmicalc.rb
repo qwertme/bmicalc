@@ -17,19 +17,15 @@ class Bmicalc
 
   def initialize(options = {})
     @round = options.fetch(:round, true)
-    @bmi_calculator = options.fetch(:metric, true) ? MetricBMI.new : ImperialBMI.new
+    @bmi_calculator = options.fetch(:units, :metric) == :metric ? MetricBMI.new : ImperialBMI.new
   end
 
   def result
     error unless weight && height
-    calculate_result
+    round(@bmi_calculator.calculate(weight, height))
   end
 
   private
-
-  def calculate_result
-    round(@bmi_calculator.calculate(weight, height))
-  end
 
   def round(result)
     if @round

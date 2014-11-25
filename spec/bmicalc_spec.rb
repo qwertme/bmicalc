@@ -50,14 +50,14 @@ describe Bmicalc do
 
   context 'imperial' do
     it 'calculates with imperial values' do
-      bmi = Bmicalc.new(metric: false)
+      bmi = Bmicalc.new(:units => :imperial)
       bmi.weight = 141
       bmi.height = 70
       expect(bmi.result).to eq(20)
     end
 
     it 'returns bmi without rounding' do
-      bmi = Bmicalc.new(metric: false, round: false)
+      bmi = Bmicalc.new(:units => :imperial, round: false)
       bmi.weight = 141
       bmi.height = 70.1
       expect(bmi.result).to eq(20.171509622487545)
